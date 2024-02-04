@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>농협대학교 API 플랫폼</title>
+    <link href='https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/css/vendor/reset.css">
+    <link rel="stylesheet" href="assets/css/ui.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
+    <script src="assets/js/vendor/jquery-3.6.1.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="dashboard-page page-wrapper">
+
+        <!-- (대시보드) -->
+        <div class="dashboard-layout">
+
+          <!-- (대시보드) 왼쪽 사이드바 -->
+          <div class="dashboard-layout-sidebar">
+            <div class="left-sidebar-top">
+              <h1 class="logo">
+                <a href="admin-dashboard-main.html" class="logo-link">
+                  <img src="assets/images/logo/logo-naos.png" alt="로고" class="logo-img">
+                  <span class="badge type-navy">Admin</span>
+                </a>
+              </h1>
+            </div>
+
+            <!-- TODO: 메뉴 많아지면 스크롤 됨 -->
+            <div class="left-sidebar-mid">
+              <ul class="btn-list-grp">
+                <li class="btn-list ">
+                  <div onclick="location.href='admin-dashboard-main.html';" class="btn list-btn-type06">
+                    <div class="ico-box">
+                      <img src="assets/images/ico/ico-adm-nav-home-on.svg" alt="아이콘" class="ico ico-on">
+                      <img src="assets/images/ico/ico-adm-nav-home-off.svg" alt="아이콘" class="ico ico-off">
+                    </div>
+                    <span class="txt">대시보드</span>
+                  </div>
+                </li>
+                <li class="btn-list">
+                  <div class="dropdown-btn-list">
+                    <div class="dropdown-btn-top ">
+                      <div onclick="location.href='admin-dashboard-user-check.html';" class="btn list-btn-type06">
+                        <div class="ico-box">
+                          <img src="assets/images/ico/ico-adm-nav-user-on.svg" alt="아이콘" class="ico ico-on">
+                          <img src="assets/images/ico/ico-adm-nav-user-off.svg" alt="아이콘" class="ico ico-off">
+                        </div>
+                        <span class="txt">회원 관리</span>
+                        <img src="assets/images/ico/ico-down-arrow-gray.svg" alt="아래로" class="ico ico-16 ico-down">
+                      </div>
+                    </div>
+                    <ul class="dropdown-btn-bottom">
+                      <li class="btn-list ">
+                        <div onclick="location.href='admin-dashboard-user-check.html';" class="btn txt-btn">
+                          <span class="txt">회원 목록·상세정보 조회</span>
+                        </div>
+                      </li>
+                      <li class="btn-list ">
+                        <div onclick="location.href='admin-dashboard-user-log.html';" class="btn txt-btn">
+                          <span class="txt">로그 기록 조회</span>
+                        </div>
+                      </li>
+                      <li class="btn-list ">
+                        <div onclick="location.href='admin-dashboard-user-invitation.html';" class="btn txt-btn">
+                          <span class="txt">초대장 관리</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="btn-list">
+                  <div class="dropdown-btn-list">
+                    <div class="dropdown-btn-top active">
+                      <div onclick="location.href='admin-dashboard-content-setting.html';" class="btn list-btn-type06">
+                        <div class="ico-box">
+                          <img src="assets/images/ico/ico-adm-nav-content-on.svg" alt="아이콘" class="ico ico-on">
+                          <img src="assets/images/ico/ico-adm-nav-content-off.svg" alt="아이콘" class="ico ico-off">
+                        </div>
+                        <span class="txt">콘텐츠 관리</span>
+                        <img src="assets/images/ico/ico-down-arrow-gray.svg" alt="아래로" class="ico ico-16 ico-down">
+                      </div>
+                    </div>
+                    <ul class="dropdown-btn-bottom">
+                      <li class="btn-list ">
+                        <div onclick="location.href='admin-dashboard-content-setting.html';" class="btn txt-btn">
+                          <span class="txt">콘텐츠 관리</span>
+                        </div>
+                      </li>
+                      <li class="btn-list active">
+                        <div onclick="location.href='admin-dashboard-avatar-setting.html';" class="btn txt-btn">
+                          <span class="txt">프리미엄 아바타 승인·관리</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="btn-list ">
+                  <div onclick="location.href='admin-dashboard-notice-setting.html';" class="btn list-btn-type06">
+                    <div class="ico-box">
+                      <img src="assets/images/ico/ico-adm-nav-notice-on.svg" alt="아이콘" class="ico ico-on">
+                      <img src="assets/images/ico/ico-adm-nav-notice-off.svg" alt="아이콘" class="ico ico-off">
+                    </div>
+                    <span class="txt">공지사항 관리</span>
+                  </div>
+                </li>
+                <li class="btn-list ">
+                  <div onclick="location.href='admin-dashboard-pay-setting.html';" class="btn list-btn-type06">
+                    <div class="ico-box">
+                      <img src="assets/images/ico/ico-adm-nav-pay-on.svg" alt="아이콘" class="ico ico-on">
+                      <img src="assets/images/ico/ico-adm-nav-pay-off.svg" alt="아이콘" class="ico ico-off">
+                    </div>
+                    <span class="txt">용량 및 결제 관리</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="left-sidebar-bottom">
+              <span class="txt">Powered by</span>
+              <img src="assets/images/logo/logo-nh.png" alt="농협대학교 로고" class="logo-img">
+            </div>
+          </div>
+
+          <!-- END (대시보드) 왼쪽 사이드바 -->
+
+          <!-- (대시보드) 오른쪽 내용 영역 -->
+
+          <!-- 관리자 대시보드 콘텐츠 관리) 프리미엄 아바타 승인관리 -->
+          <div class="admin-dsbd-main-page dashboard-layout-content">
+            <div class="dashboard-layout-header">
+              <div class="right-wrap">
+                <div class="name-wrap">
+                  <b class="name">농협대학교 관리자</b>
+                  <span>님 접속</span>
+                </div>
+                <button type="button" class="btn btn-type04">로그아웃</button>
+              </div>
+            </div>
+            <div class="dashboard-layout-page">
+
+              <!-- 제목 -->
+              <div class="dashboard-ttl-wrap">
+                <h2 class="title-lg">프리미엄 아바타 승인·관리</h2>
+              </div>
+
+              <!-- END 제목 -->
+
+              <!-- 내용 -->
+              <div class="dashboard-content-wrap">
+              </div>
+
+              <!-- END 내용 -->
+            </div>
+          </div>
+
+          <!-- END (대시보드) 오른쪽 내용 영역 -->
+        </div>
+
+        <!-- END (대시보드) -->
+      </div>
+
+      <!-- FIXME: 프로젝트 관리의 모달들 -->
+    </div>
+  </body>
+</html>
