@@ -2,13 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1280, initial-scale=1.0">
     <title>농협대학교 API 플랫폼</title>
     <link href='https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/css/vendor/reset.css">
     <link rel="stylesheet" href="assets/css/ui.css">
     <link rel="stylesheet" href="assets/css/pages.css">
     <script src="assets/js/vendor/jquery-3.6.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <div id="app">
@@ -25,7 +26,7 @@
               </p>
             </div>
             <div class="setting-btn-grp">
-              <button type="button" class="btn btn-type02">
+              <button type="button" onclick="showFloating('floating-01');" class="btn btn-type02">
                 <img src="assets/images/ico/ico-refresh.svg" alt="다시 아이콘" class="ico ico-15">
                 <span class="txt">이메일 다시 보내기</span>
               </button>
@@ -34,14 +35,13 @@
           </div>
         </div>
       </div>
-
-      <!-- FIXME: -->
-      <div>
-        <div>
-          <img src="" alt="">
-          <p>비밀번호 재설정 메일을 다시 보냈어요.</p>
+      <div id="floating-01" class="floating-wrapper">
+        <div class="floating-txt">
+          <img src="assets/images/ico/ico-bang-green.svg" alt="" class="ico ico-18">
+          <p class="txt">비밀번호 재설정 메일을 다시 보냈어요.</p>
         </div>
       </div>
     </div>
+    <script src="assets/js/ui.js"></script>
   </body>
 </html>

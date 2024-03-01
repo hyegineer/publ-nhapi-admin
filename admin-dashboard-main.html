@@ -2,13 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1280, initial-scale=1.0">
     <title>농협대학교 API 플랫폼</title>
     <link href='https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/css/vendor/reset.css">
     <link rel="stylesheet" href="assets/css/ui.css">
     <link rel="stylesheet" href="assets/css/pages.css">
     <script src="assets/js/vendor/jquery-3.6.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <div id="app">
@@ -149,6 +150,197 @@
 
               <!-- 내용 -->
               <div class="dashboard-content-wrap">
+                <section class="section">
+                  <h3 class="section-ttl">새 알림이 <span class="red-square-txt">4</span>건 있습니다.</h3>
+                  <div class="section-content">
+                    <div class="alarm-card-grp">
+                      <div class="alarm-card">
+                        <span class="card-badge">프리미엄 아바타</span>
+                        <p class="card-desc">새로운 승인 요청이 <b class="color-txt">2</b>건 도착했습니다.</p>
+                        <div class="card-ico-box">
+                          <i class="ico ico-on ico-alarm-checked"></i>
+                          <i class="ico ico-off ico-alarm-unchecked"></i>
+                        </div>
+                      </div>
+
+                      <!-- TODO: 읽었을 경우 active -->
+                      <div class="alarm-card active">
+                        <span class="card-badge type-ylw">일반</span>
+                        <p class="card-desc">새로운 승인 요청이 <b class="color-txt">2</b>건 도착했습니다.</p>
+                        <div class="card-ico-box">
+                          <i class="ico ico-on ico-alarm-checked"></i>
+                          <i class="ico ico-off ico-alarm-unchecked"></i>
+                        </div>
+                      </div>
+                      <div class="alarm-card">
+                        <span class="card-badge type-red">구독</span>
+                        <p class="card-desc">API 플랜 만료까지 <b class="color-txt">3</b>일 남았습니다.</p>
+                        <div class="card-ico-box">
+                          <i class="ico ico-on ico-alarm-checked"></i>
+                          <i class="ico ico-off ico-alarm-unchecked"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="button" class="btn btn-type22">더보기</button>
+                  </div>
+                </section>
+                <section class="section section-cols">
+                  <div class="section-col type-left">
+                    <h3 class="section-ttl">콘텐츠 활동 내역</h3>
+                    <div class="section-content">
+                      <div class="activity-card-row-grp">
+
+                        <!-- 보이스 활동 내역 -->
+                        <div class="activity-card-row">
+                          <article class="activity-ttl-card type-voice">
+                            <i class="ico ico-voice"></i>
+                            <h4 class="card-ttl">보이스</h4>
+                          </article>
+                          <article class="activity-card">
+                            <div class="card-content">
+                              <h4 class="card-ttl">총 콘텐츠</h4>
+                              <b class="card-desc">127개</b>
+                            </div>
+                            <p class="card-etc-txt">2023.12.27. <br>AM 11:23 기준</p>
+                          </article>
+                          <article class="activity-card">
+                            <div class="card-content">
+                              <h4 class="card-ttl">대기중 콘텐츠</h4>
+                              <b class="card-desc">3개</b>
+                            </div>
+                            <p class="card-etc-txt">2023.12.27. <br>AM 11:23 기준</p>
+                          </article>
+                          <article class="activity-card">
+                            <div class="card-content">
+                              <h4 class="card-ttl">추가 사용 요청</h4>
+                              <b class="card-desc">4명</b>
+                            </div>
+                            <p class="card-etc-txt">2023.12.27. <br>AM 11:23 기준</p>
+                          </article>
+                          <article class="activity-card">
+                            <div class="card-content">
+                              <h4 class="card-ttl">월 할당량 소진</h4>
+                              <b class="card-desc">1명</b>
+                            </div>
+                            <p class="card-etc-txt">2023.12.27. <br>AM 11:23 기준</p>
+                          </article>
+                        </div>
+
+                        <!-- END 보이스 활동 내역 -->
+
+                        <!-- 아바타 활동 내역 -->
+                        <div class="activity-card-row">
+                          <article class="activity-ttl-card type-avatar">
+                            <i class="ico ico-avatar"></i>
+                            <h4 class="card-ttl">아바타</h4>
+                          </article>
+                          <article class="activity-card">
+                            <div class="card-content">
+                              <h4 class="card-ttl">총 콘텐츠</h4>
+                              <b class="card-desc">127개</b>
+                            </div>
+                            <p class="card-etc-txt">2023.12.27. <br>AM 11:23 기준</p>
+                          </article>
+                          <article class="activity-card">
+                            <div class="card-content">
+                              <h4 class="card-ttl">대기중 콘텐츠</h4>
+                              <b class="card-desc">3개</b>
+                            </div>
+                            <p class="card-etc-txt">2023.12.27. <br>AM 11:23 기준</p>
+                          </article>
+                          <article class="activity-card">
+                            <div class="card-content">
+                              <h4 class="card-ttl">추가 사용 요청</h4>
+                              <b class="card-desc">4명</b>
+                            </div>
+                            <p class="card-etc-txt">2023.12.27. <br>AM 11:23 기준</p>
+                          </article>
+                          <article class="activity-card">
+                            <div class="card-content">
+                              <h4 class="card-ttl">월 할당량 소진</h4>
+                              <b class="card-desc">1명</b>
+                            </div>
+                            <p class="card-etc-txt">2023.12.27. <br>AM 11:23 기준</p>
+                          </article>
+                        </div>
+
+                        <!-- END 아바타 활동 내역 -->
+
+                        <!-- 프리미엄 아바타 활동 내역 -->
+                        <div class="activity-card-row">
+                          <article class="activity-ttl-card type-pavatar">
+                            <i class="ico ico-pavatar"></i>
+                            <h4 class="card-ttl">프리미엄 <br>아바타</h4>
+                          </article>
+                          <article class="activity-card">
+                            <div class="card-content">
+                              <h4 class="card-ttl">총 콘텐츠</h4>
+                              <b class="card-desc">127개</b>
+                            </div>
+                            <p class="card-etc-txt">2023.12.27. <br>AM 11:23 기준</p>
+                          </article>
+                          <article class="activity-card">
+                            <div class="card-content">
+                              <h4 class="card-ttl">대기중 콘텐츠</h4>
+                              <b class="card-desc">3개</b>
+                            </div>
+                            <p class="card-etc-txt">2023.12.27. <br>AM 11:23 기준</p>
+                          </article>
+                          <article class="activity-card">
+                            <div class="card-content">
+                              <h4 class="card-ttl">추가 사용 요청</h4>
+                              <b class="card-desc">4명</b>
+                            </div>
+                            <p class="card-etc-txt">2023.12.27. <br>AM 11:23 기준</p>
+                          </article>
+                          <article class="activity-card">
+                            <div class="card-content">
+                              <h4 class="card-ttl">월 할당량 소진</h4>
+                              <b class="card-desc">1명</b>
+                            </div>
+                            <p class="card-etc-txt">2023.12.27. <br>AM 11:23 기준</p>
+                          </article>
+                        </div>
+
+                        <!-- END 프리미엄 아바타 활동 내역 -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="section-col type-right">
+                    <h3 class="section-ttl">유저 활동 내역</h3>
+                    <div class="section-content">
+                      <div class="white-box user-activity-box">
+                        <div class="chart-area">
+                          <canvas id="myChart"></canvas>
+                        </div>
+                        <article class="user-activity-card">
+                          <div class="card-ttl-wrap">
+                            <h4 class="card-ttl">오늘 접속자</h4>
+                            <span class="card-etc-txt">2023.12.27. AM 11:23 기준</span>
+                          </div>
+                          <div class="card-desc-wrap">
+                            <b class="card-desc">40</b>
+
+                            <!-- TODO: 올라갔을 때 -->
+                            <span class="sm-txt type-red">▲ 20</span>
+
+                            <!-- TODO: 내려갔을 때 -->
+                            <span class="sm-txt type-blue">▼ 20</span>
+                          </div>
+                        </article>
+                        <article class="user-activity-card">
+                          <div class="card-ttl-wrap">
+                            <h4 class="card-ttl">동시 접속자</h4>
+                            <span class="card-etc-txt">2023.12.27. AM 11:23 기준</span>
+                          </div>
+                          <div class="card-desc-wrap">
+                            <b class="card-desc blue-txt">3</b>
+                          </div>
+                        </article>
+                      </div>
+                    </div>
+                  </div>
+                </section>
               </div>
 
               <!-- END 내용 -->
@@ -160,8 +352,50 @@
 
         <!-- END (대시보드) -->
       </div>
-
-      <!-- FIXME: 프로젝트 관리의 모달들 -->
     </div>
+    <script src="assets/js/ui.js"></script>
+    <script>
+      const ctx = document.getElementById('myChart');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['토', '일', '월', '화', '수', '목'],
+          datasets: [{
+            data: [12, 19, 3, 5, 2, 3],
+            borderWidth: 2,
+            pointBorderColor: '#2F75F1',
+            pointBackgroundColor: '#fff',
+            borderColor: '#2f75f1',
+          }]
+        },
+        options: {
+          scales: {
+            x: {
+              type: 'category',
+              position: 'top',
+              grid: {
+                color: '#DCDCDC',
+                borderWidth: 1
+              },
+            },
+            y: {
+              ticks: {
+                display: false, //y축 텍스트 삭제
+                beginAtZero: false, //y축값이 0부터 시작
+                display: false,
+              },
+              grid: {
+                color: '#DCDCDC',
+              }
+            }
+          },
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        },
+      });
+    </script>
   </body>
 </html>

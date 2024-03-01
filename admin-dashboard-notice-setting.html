@@ -2,13 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1280, initial-scale=1.0">
     <title>농협대학교 API 플랫폼</title>
     <link href='https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/css/vendor/reset.css">
     <link rel="stylesheet" href="assets/css/ui.css">
     <link rel="stylesheet" href="assets/css/pages.css">
     <script src="assets/js/vendor/jquery-3.6.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <div id="app">
@@ -128,7 +129,7 @@
           <!-- (대시보드) 오른쪽 내용 영역 -->
 
           <!-- 관리자 대시보드 공지사항 관리 -->
-          <div class="admin-dsbd-main-page dashboard-layout-content">
+          <div class="admin-dsbd-ntcsetting-page dashboard-layout-content">
             <div class="dashboard-layout-header">
               <div class="right-wrap">
                 <div class="name-wrap">
@@ -149,6 +150,276 @@
 
               <!-- 내용 -->
               <div class="dashboard-content-wrap">
+                <section class="section">
+
+                  <!-- 테이블 검색 옵션 -->
+                  <div class="tbl-top-bar">
+                    <div class="tbl-top-bar-inner-wrap type-left">
+                      <dl class="tbl-status-dl">
+                        <dt class="dt">전체 글: </dt>
+                        <b class="dd"><span>14</span></b>
+                      </dl>
+                      <dl class="tbl-status-dl">
+                        <dt class="dt red-txt">게시중: </dt>
+                        <b class="dd"><span>1</span></b>
+                      </dl>
+                      <button type="button" class="btn ico-btn del-btn">
+                        <span class="txt-hidden">삭제하기</span>
+                        <img src="assets/images/ico/ico-listbtn-del-dark.svg" alt="삭제 아이콘" class="ico ico-22">
+                      </button>
+                      <button type="button" class="btn ico-btn refresh-btn">
+                        <span class="txt-hidden">새로고침</span>
+                        <i class="ico ico-represh"></i>
+                      </button>
+                    </div>
+                    <div class="tbl-top-bar-inner-wrap type-right">
+                      <div class="search-inp-grp js-search-inp">
+                        <input type="text" class="inp" />
+                        <button type="button" class="btn ico-btn search-btn">
+                          <span class="txt-hidden">검색하기</span>
+                          <i class="ico ico-js-search"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- END 테이블 검색 옵션 -->
+
+                  <!-- 테이블 영역 -->
+                  <div class="tbl">
+
+                    <!-- 테이블 헤드 -->
+                    <div class="tbl-head">
+                      <div class="th">
+                        <label for="all" class="checkbox-item">
+                          <input id="all" type="checkbox" class="checkbox-inp">
+                          <label for="all" class="checkbox"></label>
+                        </label>
+                      </div>
+                      <div class="th">
+                        <div class="hover-select-item">
+                          <button type="button" class="btn hover-select-btn">글번호</button>
+                          <div class="hover-select-content-grp">
+                            <div class="white-box">
+                              <div class="hover-select-label-grp">
+                                <label for="name-sort01-01" class="hover-select-label">
+                                  <input id="name-sort01-01" type="radio" name="sort01" class="radio-inp">
+                                  <label for="name-sort01-01" class="label-txt">
+                                    <i class="ico ico-alarm-unchecked"></i>
+                                    <span class="txt">정렬, 오름차순</span>
+                                  </label>
+                                </label>
+                                <label for="name-sort01-02" class="hover-select-label">
+                                  <input id="name-sort01-02" type="radio" name="sort01" class="radio-inp">
+                                  <label for="name-sort01-02" class="label-txt">
+                                    <i class="ico ico-alarm-unchecked"></i>
+                                    <span class="txt">정렬, 내림차순</span>
+                                  </label>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="th">
+                        <div class="hover-select-item">
+                          <button type="button" class="btn hover-select-btn">제목</button>
+                          <div class="hover-select-content-grp">
+                            <div class="white-box">
+                              <div class="hover-select-label-grp">
+                                <label for="name-sort02-01" class="hover-select-label">
+                                  <input id="name-sort02-01" type="radio" name="sort02" class="radio-inp">
+                                  <label for="name-sort02-01" class="label-txt">
+                                    <i class="ico ico-alarm-unchecked"></i>
+                                    <span class="txt">정렬, 오름차순</span>
+                                  </label>
+                                </label>
+                                <label for="name-sort02-02" class="hover-select-label">
+                                  <input id="name-sort02-02" type="radio" name="sort02" class="radio-inp">
+                                  <label for="name-sort02-02" class="label-txt">
+                                    <i class="ico ico-alarm-unchecked"></i>
+                                    <span class="txt">정렬, 내림차순</span>
+                                  </label>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="th">
+                        <div class="hover-select-item">
+                          <button type="button" class="btn hover-select-btn">작성자</button>
+                          <div class="hover-select-content-grp">
+                            <div class="white-box">
+                              <div class="hover-select-label-grp">
+                                <label for="name-sort03-01" class="hover-select-label">
+                                  <input id="name-sort03-01" type="radio" name="sort03" class="radio-inp">
+                                  <label for="name-sort03-01" class="label-txt">
+                                    <i class="ico ico-alarm-unchecked"></i>
+                                    <span class="txt">정렬, 오름차순</span>
+                                  </label>
+                                </label>
+                                <label for="name-sort03-02" class="hover-select-label">
+                                  <input id="name-sort03-02" type="radio" name="sort03" class="radio-inp">
+                                  <label for="name-sort03-02" class="label-txt">
+                                    <i class="ico ico-alarm-unchecked"></i>
+                                    <span class="txt">정렬, 내림차순</span>
+                                  </label>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="th">
+                        <div class="hover-select-item">
+                          <button type="button" class="btn hover-select-btn">작성일</button>
+                          <div class="hover-select-content-grp type-lg">
+                            <div class="white-box">
+                              <div class="hover-select-label-grp">
+                                <label for="date-sort04-01" class="hover-select-label">
+                                  <input id="date-sort04-01" type="radio" name="date-sort04" class="radio-inp">
+                                  <label for="date-sort04-01" class="label-txt">
+                                    <i class="ico ico-alarm-unchecked"></i>
+                                    <span class="txt">정렬, 오름차순</span>
+                                  </label>
+                                </label>
+                                <label for="date-sort04-02" class="hover-select-label">
+                                  <input id="date-sort04-02" type="radio" name="date-sort04" class="radio-inp">
+                                  <label for="date-sort04-02" class="label-txt">
+                                    <i class="ico ico-alarm-unchecked"></i>
+                                    <span class="txt">정렬, 내림차순</span>
+                                  </label>
+                                </label>
+                              </div>
+                              <div class="hover-select-label-grp">
+                                <div class="date-form-item">
+                                  <label class="date-label">기간</label>
+                                  <div class="date-form-inp-wrap">
+                                    <div class="date-inp">
+                                      <input type="text" class="inp">
+                                      <button type="button" class="btn cal-btn">
+                                        <span class="txt-hidden">달력</span>
+                                        <i class="ico ico-cal"></i>
+                                      </button>
+                                    </div>
+                                    <span class="divider">~</span>
+                                    <div class="date-inp">
+                                      <input type="text" class="inp">
+                                      <button type="button" class="btn cal-btn">
+                                        <span class="txt-hidden">달력</span>
+                                        <i class="ico ico-cal"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="th">
+                        <div class="hover-select-item">
+                          <button type="button" class="btn hover-select-btn">게시 기간</button>
+                          <div class="hover-select-content-grp type-lg">
+                            <div class="white-box">
+                              <div class="hover-select-label-grp">
+                                <label for="date-sort05-01" class="hover-select-label">
+                                  <input id="date-sort05-01" type="radio" name="date-sort05" class="radio-inp">
+                                  <label for="date-sort05-01" class="label-txt">
+                                    <i class="ico ico-alarm-unchecked"></i>
+                                    <span class="txt">정렬, 오름차순</span>
+                                  </label>
+                                </label>
+                                <label for="date-sort05-02" class="hover-select-label">
+                                  <input id="date-sort05-02" type="radio" name="date-sort05" class="radio-inp">
+                                  <label for="date-sort05-02" class="label-txt">
+                                    <i class="ico ico-alarm-unchecked"></i>
+                                    <span class="txt">정렬, 내림차순</span>
+                                  </label>
+                                </label>
+                              </div>
+                              <div class="hover-select-label-grp">
+                                <div class="date-form-item">
+                                  <label class="date-label">기간</label>
+                                  <div class="date-form-inp-wrap">
+                                    <div class="date-inp">
+                                      <input type="text" class="inp">
+                                      <button type="button" class="btn cal-btn">
+                                        <span class="txt-hidden">달력</span>
+                                        <i class="ico ico-cal"></i>
+                                      </button>
+                                    </div>
+                                    <span class="divider">~</span>
+                                    <div class="date-inp">
+                                      <input type="text" class="inp">
+                                      <button type="button" class="btn cal-btn">
+                                        <span class="txt-hidden">달력</span>
+                                        <i class="ico ico-cal"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="th"></div>
+                    </div>
+
+                    <!-- END 테이블 헤드 -->
+
+                    <!-- 테이블 바디 -->
+                    <div class="tbl-body">
+                      <div class="tr">
+                        <div class="td">
+                          <label for="user01" class="checkbox-item">
+                            <input id="user01" type="checkbox" class="checkbox-inp">
+                            <label for="user01" class="checkbox"></label>
+                          </label>
+                        </div>
+                        <div class="td">
+                          012587
+                        </div>
+                        <div class="td">
+                          문의사항 테스트 (1)
+                        </div>
+                        <div class="td">
+                          작성자
+                        </div>
+                        <div class="td">
+                          2023.12.26 AM 11:24:23
+                        </div>
+                        <div class="td">
+                          2023.12.26 AM 11:24:23
+                        </div>
+                        <div class="td">
+                          <div class="td-btns">
+                            <button type="button" class="btn ico-btn">
+                              <span class="txt-hidden">수정하기</span>
+                              <i class="ico ico-edit"></i>
+                            </button>
+                            <button type="button" class="btn ico-btn">
+                              <span class="txt-hidden">삭제하기</span>
+                              <img src="assets/images/ico/ico-listbtn-del-dark.svg" alt="삭제 아이콘" class="ico ico-23">
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- END 테이블 바디 -->
+                  </div>
+
+                  <!-- END 테이블 영역 -->
+                  <div class="tbl-under-btn-wrap">
+                    <button type="button" onclick="openModal('modal-01');" class="btn btn-type26">
+                      <i class="ico ico-edit-white"></i>
+                      <span class="txt">게시글 등록</span>
+                    </button>
+                  </div>
+                </section>
               </div>
 
               <!-- END 내용 -->
@@ -161,7 +432,115 @@
         <!-- END (대시보드) -->
       </div>
 
-      <!-- FIXME: 프로젝트 관리의 모달들 -->
+      <!-- 게시글 등록 모달 -->
+      <div id="modal-01" class="modal-wrapper">
+        <div class="modal-overlay" onclick="closeModal('modal-01');"></div>
+        <div class="custom-modal admin-content-modal type-enroll">
+          <button type="button" class="btn close-btn" onclick="closeModal('modal-01');">
+            <span class="txt-hidden">모달 닫기 버튼</span>
+            <i class="ico ico-x"></i>
+          </button>
+          <div class="acmodal-top"></div>
+          <div class="acmodal-content">
+            <div class="form-item-grp type-other">
+              <div class="form-item">
+                <div class="form-inp-wrap">
+                  <div class="inp-wrap">
+                    <select class="form-inp type-02 w-128">
+                      <option value="카테고리">카테고리</option>
+                    </select>
+                    <div class="hover-select-item">
+                      <button type="button" class="btn form-inp type-02 hover-select-btn">게시기간</button>
+                      <div class="hover-select-content-grp type-lg">
+                        <div class="white-box">
+                          <div class="hover-select-label-grp">
+                            <label for="modal-sort08-01" class="hover-select-label">
+                              <input id="modal-sort08-01" type="radio" name="modal-sort08" class="radio-inp">
+                              <label for="modal-sort08-01" class="label-txt">
+                                <i class="ico ico-alarm-unchecked"></i>
+                                <span class="txt">항상</span>
+                              </label>
+                            </label>
+                            <label for="modal-sort08-02" class="hover-select-label">
+                              <input id="modal-sort08-02" type="radio" name="modal-sort08" class="radio-inp">
+                              <label for="modal-sort08-02" class="label-txt">
+                                <i class="ico ico-alarm-unchecked"></i>
+                                <span class="txt">대기</span>
+                              </label>
+                            </label>
+                            <div class="date-form-item">
+                              <label class="date-label">기간</label>
+                              <div class="date-form-inp-wrap">
+                                <div class="date-inp">
+                                  <input type="text" class="inp">
+                                  <button type="button" class="btn cal-btn">
+                                    <span class="txt-hidden">달력</span>
+                                    <i class="ico ico-cal"></i>
+                                  </button>
+                                </div>
+                                <span class="divider">~</span>
+                                <div class="date-inp">
+                                  <input type="text" class="inp">
+                                  <button type="button" class="btn cal-btn">
+                                    <span class="txt-hidden">달력</span>
+                                    <i class="ico ico-cal"></i>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <label for="not-view" class="checkbox-item type-05">
+                      <input id="not-view" type="checkbox" class="checkbox-inp">
+                      <label for="not-view" class="checkbox"></label>
+                      <label for="not-view" class="checkbox-txt">노출하지 않음</label>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-item">
+                <div class="form-inp-wrap">
+                  <input type="text" placeholder="제목 입력" class="form-inp">
+                </div>
+              </div>
+              <div class="form-item">
+                <div class="form-inp-wrap">
+                  <textarea placeholder="내용 입력" class="form-inp"></textarea>
+                </div>
+              </div>
+              <div class="form-item">
+                <div class="input-file-upload-container">
+                  <div class="list-grp">
+                    <span class="list-name">123.jpg</span>
+                  </div>
+                  <input type="file" id="file" class="invisible">
+                  <label for="file" class="btn txt-btn">파일 추가하기</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="acmodal-btn-wrap type-right">
+            <button type="button" class="btn btn-type25 active" onclick="openModal('modal-02');">입력</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 등록 확인 모달 -->
+      <div id="modal-02" class="modal-wrapper ">
+        <div class="modal-overlay" onclick="closeModal('modal-02');"></div>
+        <div class="custom-modal system-modal">
+          <div class="smodal-top">
+            <h3 class="smodal-ttl">등록하시겠습니까?</h3>
+          </div>
+          <div class="smodal-btn-wrap">
+            <button type="button" onclick="closeModal('modal-02');" class="btn btn-type20">취소</button>
+            <button type="button" class="btn btn-type19">네, 등록할게요</button>
+          </div>
+        </div>
+      </div>
     </div>
+    <script src="assets/js/ui.js"></script>
   </body>
 </html>

@@ -2,13 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1280, initial-scale=1.0">
     <title>농협대학교 API 플랫폼</title>
     <link href='https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/css/vendor/reset.css">
     <link rel="stylesheet" href="assets/css/ui.css">
     <link rel="stylesheet" href="assets/css/pages.css">
     <script src="assets/js/vendor/jquery-3.6.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <div id="app">
@@ -128,7 +129,7 @@
           <!-- (대시보드) 오른쪽 내용 영역 -->
 
           <!-- 관리자 대시보드 용량 및 결제 관리 -->
-          <div class="admin-dsbd-main-page dashboard-layout-content">
+          <div class="admin-dsbd-paysetting-page dashboard-layout-content">
             <div class="dashboard-layout-header">
               <div class="right-wrap">
                 <div class="name-wrap">
@@ -149,6 +150,316 @@
 
               <!-- 내용 -->
               <div class="dashboard-content-wrap">
+                <section class="section">
+                  <div id="tabs01" class="tabboxes">
+                    <div data-tab="tab01" class="tabbox type-blue">
+                      <i class="ico ico-voice"></i>
+                      <p class="tabbox-etc-txt">[보이스]</p>
+                      <div class="tabbox-content">
+                        <h3 class="tabbox-ttl">남은 시간</h3>
+                        <b class="tabbox-desc">6시간 4분</b>
+                      </div>
+                    </div>
+                    <div data-tab="tab02" class="tabbox type-red">
+                      <i class="ico ico-avatar"></i>
+                      <p class="tabbox-etc-txt">[아바타]</p>
+                      <div class="tabbox-content">
+                        <h3 class="tabbox-ttl">남은 시간</h3>
+                        <b class="tabbox-desc">6시간 4분</b>
+                      </div>
+                    </div>
+                    <div data-tab="tab03" class="tabbox type-navy">
+                      <i class="ico ico-pavatar"></i>
+                      <p class="tabbox-etc-txt">[아바타]</p>
+                      <div class="tabbox-content">
+                        <h3 class="tabbox-ttl">남은 시간</h3>
+                        <b class="tabbox-desc">2시간 14분</b>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="section">
+                  <div id="tabs01-contents" class="tabbox-contents">
+
+                    <!-- [보이스] -->
+                    <div id="tab01" class="tabbox-content active">
+                      <div class="specification-boxes">
+
+                        <!-- 플랜 사용량 -->
+                        <div class="specification-box type-blue">
+                          <div class="box-ttl-wrap">
+                            <h4 class="box-ttl">플랜 사용량</h4>
+                          </div>
+                          <div class="box-content">
+                            <div class="form-item-grp">
+                              <div class="form-item">
+                                <span class="form-label">이용기간</span>
+                                <div class="form-inp-wrap">
+                                  <p class="txt">2023년 12월 14일 ~ 2024년 1월 13일</p>
+                                </div>
+                              </div>
+                              <div class="form-item">
+                                <span class="form-label">갱신일</span>
+                                <div class="form-inp-wrap">
+                                  <p class="txt">2024년 1월 14일</p>
+                                </div>
+                              </div>
+                              <div class="form-item">
+                                <span class="form-label">시간</span>
+                                <div class="form-inp-wrap">
+                                  <div class="progress-dls-wrap">
+                                    <div class="progress">
+                                      <span class="progress-bar" style="width: 90%;"></span>
+                                    </div>
+                                    <div class="info-dl-grp">
+                                      <dl class="info-dl">
+                                        <dt class="dt">잔여량</dt>
+                                        <dd class="dd">5시간 59분 15초</dd>
+                                      </dl>
+                                      <dl class="info-dl">
+                                        <dt class="dt">사용량</dt>
+                                        <dd class="dd">45초</dd>
+                                      </dl>
+                                      <dl class="info-dl">
+                                        <dt class="dt">매달 갱신량</dt>
+                                        <dd class="dd">6시간</dd>
+                                      </dl>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-item">
+                                <span class="form-label">커스텀 슬롯</span>
+                                <div class="form-inp-wrap">
+                                  <div class="progress-dls-wrap">
+                                    <div class="progress">
+                                      <span class="progress-bar" style="width: 90%;"></span>
+                                    </div>
+                                    <div class="info-dl-grp">
+                                      <dl class="info-dl">
+                                        <dt class="dt">생성한 보이스 수</dt>
+                                        <dd class="dd">
+                                          1개 <b>/<span class="gray-txt">2</span>개</b>
+                                        </dd>
+                                      </dl>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- END 플랜 사용량 -->
+
+                        <!-- 결제 정보 -->
+                        <div class="specification-box type-blue">
+                          <div class="box-ttl-wrap">
+                            <h4 class="box-ttl">결제 정보</h4>
+                          </div>
+                          <div class="box-content">
+                            <div class="form-item-grp">
+                              <div class="form-item">
+                                <span class="form-label">결제 수단</span>
+                                <div class="form-inp-wrap">
+                                  <div class="iflex-item">
+                                    <p class="txt">H카드 *******1234</p>
+
+                                    <!-- hover set button -->
+                                    <div class="hover-set-item">
+                                      <span class="hover-target-btn btn">
+                                  <i class="ico-bang-gray ico"></i>
+                                  <span class="txt-hidden">정보 보기</span>
+                                      </span>
+                                      <div class="hover-content-grp">
+                                        <div class="gray-bubble-box">카드 변경은 담당자에게 문의 바랍니다.</div>
+                                      </div>
+                                    </div>
+
+                                    <!-- END hover set button -->
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-item">
+                                <span class="form-label">구독 기간</span>
+                                <div class="form-inp-wrap">
+                                  <div class="iflex-item type-col">
+                                    <p class="txt">월간</p>
+                                    <span class="sm-txt">2023년 12월 14일 ~ 2024년 1월 13일</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-item">
+                                <span class="form-label">결제 예정일</span>
+                                <div class="form-inp-wrap">
+                                  <div class="iflex-item">
+                                    <p class="txt">없음</p>
+
+                                    <!-- hover set button -->
+                                    <div class="hover-set-item">
+                                      <span class="hover-target-btn btn">
+                                  <i class="ico-bang-gray ico"></i>
+                                  <span class="txt-hidden">정보 보기</span>
+                                      </span>
+                                      <div class="hover-content-grp">
+                                        <div class="gray-bubble-box">결제일 변경은 담당자에게 문의 바랍니다.</div>
+                                      </div>
+                                    </div>
+
+                                    <!-- END hover set button -->
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- END 결제 정보 -->
+                      </div>
+                    </div>
+
+                    <!-- END [보이스] -->
+
+                    <!-- [아바타] -->
+                    <div id="tab02" class="tabbox-content">
+                      <div class="specification-boxes">
+
+                        <!-- 플랜 사용량 -->
+                        <div class="specification-box type-red">
+                          <div class="box-ttl-wrap">
+                            <h4 class="box-ttl">플랜 사용량</h4>
+                          </div>
+                          <div class="box-content">
+                            <div class="form-item-grp">
+                              <div class="form-item">
+                                <span class="form-label">이용기간</span>
+                                <div class="form-inp-wrap">
+                                  <p class="txt">2023년 12월 14일 ~ 2024년 1월 13일</p>
+                                </div>
+                              </div>
+                              <div class="form-item">
+                                <span class="form-label">갱신일</span>
+                                <div class="form-inp-wrap">
+                                  <p class="txt">2024년 1월 14일</p>
+                                </div>
+                              </div>
+                              <div class="form-item">
+                                <span class="form-label">시간</span>
+                                <div class="form-inp-wrap">
+                                  <div class="progress-dls-wrap">
+                                    <div class="progress">
+                                      <span class="progress-bar" style="width: 90%;"></span>
+                                    </div>
+                                    <div class="info-dl-grp">
+                                      <dl class="info-dl">
+                                        <dt class="dt">잔여량</dt>
+                                        <dd class="dd">5시간 59분 15초</dd>
+                                      </dl>
+                                      <dl class="info-dl">
+                                        <dt class="dt">사용량</dt>
+                                        <dd class="dd">45초</dd>
+                                      </dl>
+                                      <dl class="info-dl">
+                                        <dt class="dt">매달 갱신량</dt>
+                                        <dd class="dd">6시간</dd>
+                                      </dl>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-item">
+                                <span class="form-label">커스텀 슬롯</span>
+                                <div class="form-inp-wrap">
+                                  <div class="progress-dls-wrap">
+                                    <div class="progress">
+                                      <span class="progress-bar" style="width: 90%;"></span>
+                                    </div>
+                                    <div class="info-dl-grp">
+                                      <dl class="info-dl">
+                                        <dt class="dt">생성한 보이스 수</dt>
+                                        <dd class="dd">
+                                          1개 <b>/<span class="gray-txt">2</span>개</b>
+                                        </dd>
+                                      </dl>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- END 플랜 사용량 -->
+
+                        <!-- 결제 정보 -->
+                        <div class="specification-box type-red">
+                          <div class="box-ttl-wrap">
+                            <h4 class="box-ttl">결제 정보</h4>
+                          </div>
+                          <div class="box-content">
+                            <div class="form-item-grp">
+                              <div class="form-item">
+                                <span class="form-label">결제 수단</span>
+                                <div class="form-inp-wrap">
+                                  <div class="iflex-item">
+                                    <p class="txt">H카드 *******1234</p>
+
+                                    <!-- hover set button -->
+                                    <div class="hover-set-item">
+                                      <span class="hover-target-btn btn">
+                                  <img src="assets/images/ico/ico-bang.svg" alt="정보 아이콘" class="ico ico-17">
+                                  <span class="txt-hidden">정보 보기</span>
+                                      </span>
+                                      <div class="hover-content-grp">
+                                        <div class="gray-bubble-box">카드 변경은 담당자에게 문의 바랍니다.</div>
+                                      </div>
+                                    </div>
+
+                                    <!-- END hover set button -->
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-item">
+                                <span class="form-label">구독 기간</span>
+                                <div class="form-inp-wrap">
+                                  <div class="iflex-item type-col">
+                                    <p class="txt">월간</p>
+                                    <span class="sm-txt">2023년 12월 14일 ~ 2024년 1월 13일</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="form-item">
+                                <span class="form-label">결제 예정일</span>
+                                <div class="form-inp-wrap">
+                                  <div class="iflex-item">
+                                    <p class="txt">없음</p>
+
+                                    <!-- hover set button -->
+                                    <div class="hover-set-item">
+                                      <span class="hover-target-btn btn">
+                                  <img src="assets/images/ico/ico-bang.svg" alt="정보 아이콘" class="ico ico-17">
+                                  <span class="txt-hidden">정보 보기</span>
+                                      </span>
+                                      <div class="hover-content-grp">
+                                        <div class="gray-bubble-box">결제일 변경은 담당자에게 문의 바랍니다.</div>
+                                      </div>
+                                    </div>
+
+                                    <!-- END hover set button -->
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- END 결제 정보 -->
+                      </div>
+                    </div>
+
+                    <!-- END [아바타] -->
+                  </div>
+                </section>
               </div>
 
               <!-- END 내용 -->
@@ -160,8 +471,19 @@
 
         <!-- END (대시보드) -->
       </div>
-
-      <!-- FIXME: 프로젝트 관리의 모달들 -->
     </div>
+    <script src="assets/js/ui.js"></script>
+    <script>
+      // 탭 구현
+      $('[data-tab]').on('click', function() {
+        var tabs = $(this).parent('.tabboxes').attr('id');
+        var content = $(this).attr('data-tab');
+        var contents = $(`#${content}`).parent('.tabbox-contents').attr('id');
+        $(`#${tabs} [data-tab]`).removeClass('active');
+        $(this).addClass('active');
+        $(`#${contents} .tabbox-content`).removeClass('active');
+        $(`#${content}`).addClass('active');
+      })
+    </script>
   </body>
 </html>

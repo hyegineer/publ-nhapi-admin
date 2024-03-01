@@ -2,13 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1280, initial-scale=1.0">
     <title>농협대학교 API 플랫폼</title>
     <link href='https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/css/vendor/reset.css">
     <link rel="stylesheet" href="assets/css/ui.css">
     <link rel="stylesheet" href="assets/css/pages.css">
     <script src="assets/js/vendor/jquery-3.6.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <div id="app">
@@ -48,7 +49,11 @@
                       <label class="form-label">비밀번호</label>
                       <input type="password" autocomplete="new-password" placeholder="비밀번호를 입력해주세요." class="form-inp">
 
-                      <!-- FIXME: 비밀번호 보기 버튼 -->
+                      <!-- TODO: 누르면 active 클래스를 추가해주세요 -->
+                      <button type="button" class="btn toggle-btn pwd-view-btn">
+                        <img src="assets/images/ico/ico-pwd-off.svg" alt="불가" class="ico ico-17 ico-off">
+                        <img src="assets/images/ico/ico-pwd-on.svg" alt="가능" class="ico ico-17 ico-on">
+                      </button>
                     </div>
                   </div>
 
@@ -68,5 +73,6 @@
         </div>
       </div>
     </div>
+    <script src="assets/js/ui.js"></script>
   </body>
 </html>
